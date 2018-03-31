@@ -1,6 +1,7 @@
 .idea
 .gradle
 out
+*.iml
 
 
 # Built application files
