@@ -49,7 +49,5 @@ public class json {
 
     private json(){ gson = create(); }
 
-    private json(Listener<GsonBuilder> function){
-        gson = create(function);
-    }
+    private json(Listener<GsonBuilder> function){ gson = create(function); }
 }

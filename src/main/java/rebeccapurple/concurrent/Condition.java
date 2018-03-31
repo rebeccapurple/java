@@ -1,4 +1,4 @@
-package rebeccapurple.concurrency;
+package rebeccapurple.concurrent;
 
 public class Condition extends Lock {
     private final java.util.concurrent.locks.Condition __condition;

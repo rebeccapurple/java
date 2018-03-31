@@ -1,4 +1,4 @@
-package rebeccapurple.concurrency;
+package rebeccapurple.concurrent;
 
 import java.util.concurrent.locks.ReentrantLock;
 
