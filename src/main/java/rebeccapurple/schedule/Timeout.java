@@ -3,7 +3,7 @@ package rebeccapurple.schedule;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Timeout extends FunctionalTask {
+public class Timeout extends rebeccapurple.scheduler.Task {
     @SerializedName("millisecond") @Expose private long __millisecond;
 
     @Override public long timestamp() { return System.currentTimeMillis() + __millisecond; }

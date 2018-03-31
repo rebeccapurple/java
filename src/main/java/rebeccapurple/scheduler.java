@@ -10,15 +10,29 @@ import java.util.TreeMap;
 
 public class scheduler {
     public static abstract class Task implements rebeccapurple.Task<Long> {
+        public interface Operator {
+            void call(Task task, Throwable exception, rebeccapurple.Operator.On<Task> callback);
+        }
         @SerializedName("in")    @Expose protected Long __in;
         @SerializedName("state") @Expose protected int __state;
         @SerializedName("out")   @Expose protected Long __out;
+
+
+        private final Operator __operator;
+
         protected Throwable __exception;
         protected Loop __internal;
         protected Long __ttl;
 
         public abstract long timestamp();
-        protected abstract void on(Throwable exception, Operator.On<Task> callback);
+
+        protected void call(Operator operator, Throwable exception, rebeccapurple.Operator.On<Task> callback) {
+            if(__operator!=null){
+                __operator.call(this, exception, callback);
+            }
+        }
+
+        protected void on(Throwable exception, rebeccapurple.Operator.On<Task> callback){ call(__operator, exception, callback); }
 
         public boolean repeatable(){ return false; }
 
@@ -81,6 +95,9 @@ public class scheduler {
                 }
             }
         }
+
+        protected Task(){ __operator = null; }
+        protected Task(Operator operator){ __operator = operator; }
     }
 
     public static class Wheel extends rebeccapurple.concurrent.Lock {
