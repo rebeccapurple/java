@@ -9,6 +9,13 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class scheduler {
+    public static void log(Task task, Throwable exception, rebeccapurple.Operator.On<Task> callback) {
+        rebeccapurple.log.e(task, exception);
+        if(callback != null){
+            callback.on(task, exception);
+        }
+    }
+
     public static abstract class Task implements rebeccapurple.Task<Long> {
         public interface Operator {
             void call(Task task, Throwable exception, rebeccapurple.Operator.On<Task> callback);
