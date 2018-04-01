@@ -1,4 +1,4 @@
-package rebeccapurple;
+package functional;
 
 public class timestamp {
     public static long current(){ return System.currentTimeMillis(); }

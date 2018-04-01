@@ -1,30 +1,30 @@
 package io.textory.rebeccapurple;
 
-import rebeccapurple.log.TYPE;
+import rebeccapurple.log.Type;
 
 public class ExampleLog {
 
     public static void main(String[] args) {
-        rebeccapurple.log.types(TYPE.NONE);
-        rebeccapurple.log.types(TYPE.ALL);
+        functional.log.types(Type.NONE);
+        functional.log.types(Type.ALL);
 
-        rebeccapurple.log.type.disable(TYPE.ERROR);
-        rebeccapurple.log.type.disable(TYPE.WARNING);
-        rebeccapurple.log.type.disable(TYPE.CAUTION);
-        rebeccapurple.log.type.disable(TYPE.NOTICE);
-        rebeccapurple.log.type.disable(TYPE.INFORMATION);
-        rebeccapurple.log.type.disable(TYPE.DEBUG);
-        rebeccapurple.log.type.disable(TYPE.VERBOSE);
-        rebeccapurple.log.type.disable(TYPE.FLOW);
-        rebeccapurple.log.type.disable(TYPE.USER);
-        rebeccapurple.log.type.enable(TYPE.ERROR);
-        rebeccapurple.log.type.enable(TYPE.WARNING);
-        rebeccapurple.log.type.enable(TYPE.CAUTION);
-        rebeccapurple.log.type.enable(TYPE.NOTICE);
-        rebeccapurple.log.type.enable(TYPE.INFORMATION);
-        rebeccapurple.log.type.enable(TYPE.DEBUG);
-        rebeccapurple.log.type.enable(TYPE.VERBOSE);
-        rebeccapurple.log.type.enable(TYPE.FLOW);
-        rebeccapurple.log.type.enable(TYPE.USER);
+        functional.log.type.disable(Type.ERROR);
+        functional.log.type.disable(Type.WARNING);
+        functional.log.type.disable(Type.CAUTION);
+        functional.log.type.disable(Type.NOTICE);
+        functional.log.type.disable(Type.INFORMATION);
+        functional.log.type.disable(Type.DEBUG);
+        functional.log.type.disable(Type.VERBOSE);
+        functional.log.type.disable(Type.FLOW);
+        functional.log.type.disable(Type.USER);
+        functional.log.type.enable(Type.ERROR);
+        functional.log.type.enable(Type.WARNING);
+        functional.log.type.enable(Type.CAUTION);
+        functional.log.type.enable(Type.NOTICE);
+        functional.log.type.enable(Type.INFORMATION);
+        functional.log.type.enable(Type.DEBUG);
+        functional.log.type.enable(Type.VERBOSE);
+        functional.log.type.enable(Type.FLOW);
+        functional.log.type.enable(Type.USER);
     }
 }

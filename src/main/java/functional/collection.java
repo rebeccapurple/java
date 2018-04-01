@@ -1,7 +1,11 @@
-package rebeccapurple;
+package functional;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+
+import rebeccapurple.Function;
+import rebeccapurple.Listener;
 
 public class collection {
     public static class check {
@@ -24,7 +28,7 @@ public class collection {
         }
     }
 
-    public static <K, V> V get(Map<K, V> map, K k, Function<K, V> function){ return map.computeIfAbsent(k, key -> rebeccapurple.functional.safe(key, function)); }
+    public static <K, V> V get(Map<K, V> map, K k, Function<K, V> function){ return map.computeIfAbsent(k, key -> functional.exception.safe(key, function)); }
 
     public static <T> void each(Collection<T> collection, Listener<T> function){
         for(T o : collection){

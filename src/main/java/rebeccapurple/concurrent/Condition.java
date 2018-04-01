@@ -7,7 +7,7 @@ public class Condition extends Lock {
         try {
             __condition.await();
         } catch (InterruptedException e) {
-            rebeccapurple.log.e("__condition.await()", e);
+            functional.log.e("__condition.await()", e);
         }
     }
 
@@ -16,7 +16,7 @@ public class Condition extends Lock {
             try {
                 __condition.awaitNanos(nano);
             } catch (InterruptedException e) {
-                rebeccapurple.log.e("__condition.awaitNanos(nano)", e);
+                functional.log.e("__condition.awaitNanos(nano)", e);
             }
         } else {
             suspend();

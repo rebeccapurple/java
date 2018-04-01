@@ -1,4 +1,4 @@
-package rebeccapurple;
+package functional;
 
 public class thread {
     public static StackTraceElement[] stacktrace(Thread current){ return current.getStackTrace(); }

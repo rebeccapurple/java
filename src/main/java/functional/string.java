@@ -1,4 +1,4 @@
-package rebeccapurple;
+package functional;
 
 import java.util.Locale;
 

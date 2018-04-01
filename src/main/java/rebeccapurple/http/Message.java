@@ -1,5 +1,6 @@
 package rebeccapurple.http;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ public abstract class Message {
     protected byte[] __body;
 
     public void body(byte[] v){ __body = v; }
-    public void put(Map<String, String> headers){ rebeccapurple.collection.put(__headers, headers); }
+    public void put(Map<String, String> headers){ functional.collection.put(__headers, headers); }
 
     public Map<String, String> headers(){ return __headers; }
     public byte[] body(){ return __body; }
@@ -24,12 +25,12 @@ public abstract class Message {
     }
 
     public Message(Map<String, String> headers){
-        __headers = rebeccapurple.collection.create(new HashMap<>(), headers);
+        __headers = functional.collection.create(new HashMap<>(), headers);
         __body = null;
     }
 
     public Message(Map<String, String> headers, byte[] body){
-        __headers = rebeccapurple.collection.create(new HashMap<>(), headers);
+        __headers = functional.collection.create(new HashMap<>(), headers);
         __body = body;
     }
 }
