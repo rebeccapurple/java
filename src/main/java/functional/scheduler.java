@@ -4,6 +4,7 @@ public class scheduler {
     private static rebeccapurple.scheduler.Loop __internal = null;
 
     public static void log(rebeccapurple.scheduler.Task task, Throwable exception, rebeccapurple.Operator.On<rebeccapurple.scheduler.Task> callback){
+        functional.log.e(task, exception);
         if(callback != null){
             callback.on(task, exception);
         }
