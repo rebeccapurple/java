@@ -41,4 +41,11 @@ public class collection {
         }
         return null;
     }
+
+    public static <K, V, MAP extends Map<K, V>> void put(MAP destination, Map<K, V> source){ destination.putAll(source); }
+
+    public static <K, V, MAP extends Map<K, V>> MAP create(MAP map, Map<K, V> source){
+        map.putAll(source);
+        return map;
+    }
 }
