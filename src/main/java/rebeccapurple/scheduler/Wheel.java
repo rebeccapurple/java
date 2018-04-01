@@ -67,7 +67,7 @@ public class Wheel extends rebeccapurple.concurrent.Lock {
             }
             unlock();
         } else {
-            functional.log.e("task == null");
+            functional.log.v("task == null");
         }
         return task;
     }
