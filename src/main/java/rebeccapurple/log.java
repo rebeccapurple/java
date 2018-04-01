@@ -103,6 +103,8 @@ public class log {
     private static boolean __console = false;
     private static boolean __stacktrace = false;
     private static boolean __date = false;
+    private static boolean __function = true;
+    private static int __depth = 6;
     private static LinkedHashSet<Method> __methods = new LinkedHashSet<>();
 
     private static void write(int classification, String type, String tag, String message, Throwable exception, StackTraceElement[] elements){
@@ -118,7 +120,17 @@ public class log {
                     current.second(),
                     current.millisecond()));
         }
-        builder.append(String.format(Locale.getDefault(), "%s/%s/%d %s", type, tag, thread.id(Thread.currentThread()), message));
+        if(__function && !collection.check.empty(elements)) {
+            StackTraceElement element = thread.get(elements, __depth);
+            if(element != null){
+                builder.append(String.format(Locale.getDefault(), "%s.%s(%s:%d) ",
+                                                                  string.replace(element.getClassName(), "$", "."),
+                                                                  element.getMethodName(),
+                                                                  element.getFileName(),
+                                                                  element.getLineNumber()));
+            }
+        }
+        builder.append(String.format(Locale.getDefault(), "%s", thread.id(Thread.currentThread()), message));
         if(exception != null) {
             builder.append(" exception (");
             builder.append(string.from(exception.getClass(), false));
@@ -128,7 +140,7 @@ public class log {
             }
             builder.append(")");
         }
-        if(!collection.check.empty(elements) && __stacktrace && !__shorten){
+        if(!collection.check.empty(elements) && __stacktrace){
             builder.append("\n");
             for(StackTraceElement element : elements) {
                 builder.append("    ");
@@ -158,6 +170,8 @@ public class log {
     public static void types(int v){ __types = v; }
     public static void stacktrace(boolean v){ __stacktrace = v; }
     public static void date(boolean v){ __date = v; }
+    public static void function(boolean v){ __function = v; }
+    public static void depth(int v){ __depth = v; }
 
     public static void add(Method method){
         if(method != null){
