@@ -234,8 +234,10 @@ public class scheduler {
         public <T extends Task> T reset(T task){ return wheel.reset(task); }
 
         public void cancel(Task task) {
-            wheel.del(task);
-            task.cancel(new rebeccapurple.exception.CancellationScheduleException());
+            if(task != null) {
+                wheel.del(task);
+                task.cancel(new rebeccapurple.exception.CancellationScheduleException());
+            }
         }
 
         public void on(){
