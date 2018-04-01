@@ -20,6 +20,19 @@ public class scheduler {
         public interface Operator {
             void call(Task task, Throwable exception, rebeccapurple.Operator.On<Task> callback);
         }
+
+        protected static void cancel(rebeccapurple.scheduler.Task task, Throwable exception, rebeccapurple.Operator.On<rebeccapurple.scheduler.Task> callback){
+            if(task != null){
+                if(callback != null){
+                    callback.on(task, exception);
+                } else {
+                    rebeccapurple.log.e("callback == null", exception);
+                }
+            } else {
+                rebeccapurple.log.e("task == null", exception);
+            }
+        }
+
         @SerializedName("in")    @Expose protected Long __in;
         @SerializedName("state") @Expose protected int __state;
         @SerializedName("out")   @Expose protected Long __out;
