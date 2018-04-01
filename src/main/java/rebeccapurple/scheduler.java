@@ -98,6 +98,7 @@ public class scheduler {
                         __internal.wheel.del(this);
                     }
                     __state = STATE.CANCELLED;
+                    __out = System.currentTimeMillis();
                     on(__exception = exception, null);
                 }
             }
