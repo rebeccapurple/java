@@ -43,6 +43,7 @@ public abstract class Task implements rebeccapurple.Task<Long> {
     public boolean repeatable(){ return false; }
 
     synchronized boolean schedulable(){ return is(STATE.UNKNOWN); }
+
     synchronized Long reset(Loop internal){
         if(!is(STATE.INPROGRESS)) {
             __state = STATE.READY;
