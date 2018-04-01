@@ -24,7 +24,6 @@ public class scheduler {
         @SerializedName("state") @Expose protected int __state;
         @SerializedName("out")   @Expose protected Long __out;
 
-
         private final Operator __operator;
 
         protected Throwable __exception;

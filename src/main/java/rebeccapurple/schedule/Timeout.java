@@ -1,15 +1,12 @@
 package rebeccapurple.schedule;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Timeout extends rebeccapurple.scheduler.Task {
-    @SerializedName("millisecond") @Expose private long __millisecond;
+    public void ttl(Long v){ __ttl = v; }
 
-    @Override public long timestamp() { return System.currentTimeMillis() + __millisecond; }
+    @Override public long timestamp() { return System.currentTimeMillis() + __ttl; }
 
     public Timeout(long millisecond, Operator operator) {
         super(operator);
-        __millisecond = millisecond;
+        __ttl = millisecond;
     }
 }
