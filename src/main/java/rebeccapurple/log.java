@@ -104,7 +104,7 @@ public class log {
     private static boolean __stacktrace = false;
     private static boolean __date = false;
     private static boolean __function = true;
-    private static int __depth = 6;
+    private static int __depth = 8;
     private static LinkedHashSet<Method> __methods = new LinkedHashSet<>();
 
     private static void write(int classification, String type, String tag, String message, Throwable exception, StackTraceElement[] elements){
@@ -120,17 +120,17 @@ public class log {
                     current.second(),
                     current.millisecond()));
         }
+        builder.append(String.format(Locale.getDefault(), "%s", message));
         if(__function && !collection.check.empty(elements)) {
             StackTraceElement element = thread.get(elements, __depth);
             if(element != null){
-                builder.append(String.format(Locale.getDefault(), "%s.%s(%s:%d) ",
-                                                                  string.replace(element.getClassName(), "$", "."),
-                                                                  element.getMethodName(),
-                                                                  element.getFileName(),
-                                                                  element.getLineNumber()));
+                builder.append(String.format(Locale.getDefault(), " %s.%s(%s:%d) ",
+                        string.replace(element.getClassName(), "$", "."),
+                        element.getMethodName(),
+                        element.getFileName(),
+                        element.getLineNumber()));
             }
         }
-        builder.append(String.format(Locale.getDefault(), "%s", message));
         if(exception != null) {
             builder.append(" exception (");
             builder.append(string.from(exception.getClass(), false));
