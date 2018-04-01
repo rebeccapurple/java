@@ -130,7 +130,7 @@ public class log {
                                                                   element.getLineNumber()));
             }
         }
-        builder.append(String.format(Locale.getDefault(), "%s", thread.id(Thread.currentThread()), message));
+        builder.append(String.format(Locale.getDefault(), "%s", message));
         if(exception != null) {
             builder.append(" exception (");
             builder.append(string.from(exception.getClass(), false));
