@@ -1,6 +1,7 @@
 package functional;
 
 import java.util.Locale;
+import java.util.Collection;
 
 public class string {
     public static class check {
@@ -21,5 +22,56 @@ public class string {
                     element.getLineNumber());
         }
         return "";
+    }
+
+    public static String get(String v){ return v!=null ? v : ""; }
+
+    /**
+     * returns a new {@link String} composed of copies of {@code elements} joined together with a
+     * copy of the specified {@code delimiter}.
+     *
+     * For example,
+     *
+     * <pre>String message = rebeccapurple.string.join(".", "io", "textory", null, "", "goldenrod"); // message returned is: "io.textory.goldenrod"</pre>
+     *
+     * note: if an element is null or zero length, then element is not added.
+     *
+     * @param delimiter the delimiter that separates each element
+     * @param elements the elements to join together
+     * @return a new {@link String} that is composed of the {@code elements} separated by the {@code delimiter}.
+     * @throws NullPointerException if delimiter or elements is null, throw {@link NullPointerException}.
+     */
+    @SuppressWarnings("Duplicates")
+    public static String join(CharSequence delimiter, CharSequence[] elements){
+        if(delimiter == null || elements == null){ throw new NullPointerException(); }
+
+        StringBuilder builder = new StringBuilder();
+        for(CharSequence cs : elements){
+            if(cs!=null && cs.length()!=0){
+                builder.append(cs);
+                builder.append(".");
+            }
+        }
+        if(builder.length() > 0){
+            builder.deleteCharAt(builder.length() - 1);
+        }
+        return builder.toString();
+    }
+
+    @SuppressWarnings("Duplicates")
+    public static String join(CharSequence delimiter, Collection<? extends CharSequence> elements) {
+        if(delimiter == null || elements == null){ throw new NullPointerException(); }
+
+        StringBuilder builder = new StringBuilder();
+        for(CharSequence cs : elements){
+            if(cs!=null && cs.length()!=0){
+                builder.append(cs);
+                builder.append(".");
+            }
+        }
+        if(builder.length() > 0){
+            builder.deleteCharAt(builder.length() - 1);
+        }
+        return builder.toString();
     }
 }

@@ -117,6 +117,7 @@ public class log {
     public static void date(boolean v){ __date = v; }
     public static void function(boolean v){ __function = v; }
     public static void depth(int v){ __depth = v; }
+    public static void console(boolean v){ __console = v; }
 
     public static void add(Method method){
         if(method != null){

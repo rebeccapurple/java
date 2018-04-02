@@ -8,6 +8,14 @@ public class json {
 
     private static json __singleton = null;
 
+    public static void init(){
+        synchronized (json.class) {
+            if(__singleton == null) {
+                __singleton = new json();
+            }
+        }
+    }
+
     public static void init(Listener<GsonBuilder> listener){
         synchronized (json.class) {
             if(__singleton == null) {

@@ -6,5 +6,6 @@ public class Request extends Message {
 
 
     public Method method(){ return __method; }
+    public String uri(){ return __identifier.uri(); }
 
 }

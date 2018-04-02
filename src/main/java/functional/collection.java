@@ -1,8 +1,6 @@
 package functional;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import rebeccapurple.Function;
 import rebeccapurple.Listener;
@@ -51,5 +49,23 @@ public class collection {
     public static <K, V, MAP extends Map<K, V>> MAP create(MAP map, Map<K, V> source){
         map.putAll(source);
         return map;
+    }
+
+    public static class to {
+        @SafeVarargs
+        public static <T> LinkedList<T> list(T... elements) {
+            if (elements != null) {
+                LinkedList<T> o = new LinkedList<>();
+                Collections.addAll(o, elements);
+                return o;
+            }
+            return null;
+        }
+
+        @SafeVarargs
+        public static <T, COLLECTION extends Collection<T>> COLLECTION list(COLLECTION collection, T... elements) {
+            collection.addAll(Arrays.asList(elements));
+            return collection;
+        }
     }
 }
