@@ -1,10 +1,13 @@
 package rebeccapurple.http;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Map;
 
 public class Request extends Message {
-    private Identifier __identifier;
-    private Method __method;
+    @SerializedName("uri") @Expose private Identifier __identifier;
+    @SerializedName("method") @Expose private Method __method;
 
 
     public Method method(){ return __method; }

@@ -1,11 +1,14 @@
 package rebeccapurple.http;
 
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Message {
-    protected HashMap<String, String> __headers;
+    @SerializedName("headers") @Expose protected HashMap<String, String> __headers;
     protected byte[] __body;
 
     public void body(byte[] v){ __body = v; }
