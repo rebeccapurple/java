@@ -98,6 +98,14 @@ public class Identifier {
         this.__fragment = null;
     }
 
+    public Identifier(String scheme, Authority authority){
+        this.__scheme = scheme;
+        this.authority = authority;
+        this.query = new HashMap<>();
+        this.path = new LinkedList<>();
+        this.__fragment = null;
+    }
+
     public Identifier(String scheme, String host, List<String> path){
         this.__scheme = scheme;
         this.authority = new Authority(host);
@@ -125,6 +133,14 @@ public class Identifier {
     public Identifier(String scheme, String host, Integer port, String user, List<String> path){
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
+        this.query = new HashMap<>();
+        this.path = new LinkedList<>(path);
+        this.__fragment = null;
+    }
+
+    public Identifier(String scheme, Authority authority, List<String> path){
+        this.__scheme = scheme;
+        this.authority = authority;
         this.query = new HashMap<>();
         this.path = new LinkedList<>(path);
         this.__fragment = null;
@@ -162,6 +178,14 @@ public class Identifier {
         this.__fragment = null;
     }
 
+    public Identifier(String scheme, Authority authority, List<String> path, Map<String, String> query){
+        this.__scheme = scheme;
+        this.authority = authority;
+        this.query = new HashMap<>(query);
+        this.path = new LinkedList<>(path);
+        this.__fragment = null;
+    }
+
     public Identifier(String scheme, String host, List<String> path, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host);
@@ -194,6 +218,14 @@ public class Identifier {
         this.__fragment = fragment;
     }
 
+    public Identifier(String scheme, Authority authority, List<String> path, String fragment){
+        this.__scheme = scheme;
+        this.authority = authority;
+        this.query = new HashMap<>();
+        this.path = new LinkedList<>(path);
+        this.__fragment = fragment;
+    }
+
     public Identifier(String scheme, String host, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host);
@@ -221,6 +253,14 @@ public class Identifier {
     public Identifier(String scheme, String host, Integer port, String user, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
+        this.query = new HashMap<>(query);
+        this.path = new LinkedList<>(path);
+        this.__fragment = fragment;
+    }
+
+    public Identifier(String scheme, Authority authority, List<String> path, Map<String, String> query, String fragment){
+        this.__scheme = scheme;
+        this.authority = authority;
         this.query = new HashMap<>(query);
         this.path = new LinkedList<>(path);
         this.__fragment = fragment;

@@ -1,6 +1,7 @@
 package io.textory.rebeccapurple;
 
 import rebeccapurple.Identifier;
+import rebeccapurple.exception.InvalidParameterException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,5 +74,10 @@ public class ExampleIdentifier {
 
         functional.debug.run(new Identifier("http", "textory.io", 8080, "sean", functional.collection.to.list("home", "textory", "index.html"), query, "fragment"), ExampleIdentifier::method);
 
+        try {
+            functional.debug.run(functional.identifier.from("https://www.google.co.kr/webhp?ie=UTF-8&rct=j&gws_rd=cr&dcr=0&ei=4n_BWqKtBMG_0gSIuYiQBQ"), ExampleIdentifier::debug);
+        } catch (InvalidParameterException e) {
+            e.printStackTrace();
+        }
     }
 }

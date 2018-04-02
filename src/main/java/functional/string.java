@@ -2,11 +2,18 @@ package functional;
 
 import java.util.Locale;
 import java.util.Collection;
+import java.util.regex.Pattern;
 
 public class string {
     public static class check {
         public static boolean empty(String v){ return v == null || v.length() == 0; }
     }
+
+    public static boolean validate(Pattern expression, String v){
+        return v!=null && expression!=null && v.matches(expression.pattern());
+    }
+
+    public static boolean equal(String x, String y){ return x==null ? y==null : x.equals(y); }
 
     public static String replace(String original, String target, String replacement){ return original != null ? original.replace(target, replacement) : ""; }
 
@@ -74,4 +81,7 @@ public class string {
         }
         return builder.toString();
     }
+
+    public static String[] split(String original, String delimiter){ return original != null ? original.split(delimiter) : null; }
+    public static String[] split(String original, String delimiter, int limit){ return original != null ? original.split(delimiter, limit) : null; }
 }
