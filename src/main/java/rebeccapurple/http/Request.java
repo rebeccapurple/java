@@ -5,4 +5,6 @@ public class Request extends Message {
     private Method __method;
 
 
+    public Method method(){ return __method; }
+
 }
