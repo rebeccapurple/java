@@ -40,7 +40,7 @@ public class Identifier {
 
     public Identifier(List<String> path){
         __identifier = null;
-        __path = new LinkedList<>(path);
+        __path = (path != null ? new LinkedList<>(path) : null);
         __v = null;
     }
 

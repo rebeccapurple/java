@@ -110,7 +110,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
@@ -118,7 +118,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, port);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
@@ -126,7 +126,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, user);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
@@ -134,7 +134,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
@@ -142,47 +142,47 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = authority;
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
     public Identifier(String scheme, String host, List<String> path, Map<String, String> query){
         this.__scheme = scheme;
         this.authority = new Authority(host);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
     public Identifier(String scheme, String host, Integer port, List<String> path, Map<String, String> query){
         this.__scheme = scheme;
         this.authority = new Authority(host, port);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
     public Identifier(String scheme, String host, String user, List<String> path, Map<String, String> query){
         this.__scheme = scheme;
         this.authority = new Authority(host, user);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
     public Identifier(String scheme, String host, Integer port, String user, List<String> path, Map<String, String> query){
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
     public Identifier(String scheme, Authority authority, List<String> path, Map<String, String> query){
         this.__scheme = scheme;
         this.authority = authority;
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = null;
     }
 
@@ -190,7 +190,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
@@ -198,7 +198,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, port);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
@@ -206,7 +206,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, user);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
@@ -214,7 +214,7 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
@@ -222,47 +222,47 @@ public class Identifier {
         this.__scheme = scheme;
         this.authority = authority;
         this.query = new HashMap<>();
-        this.path = new LinkedList<>(path);
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
     public Identifier(String scheme, String host, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
     public Identifier(String scheme, String host, Integer port, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host, port);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
     public Identifier(String scheme, String host, String user, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host, user);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
     public Identifier(String scheme, String host, Integer port, String user, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = new Authority(host, port, user);
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 
     public Identifier(String scheme, Authority authority, List<String> path, Map<String, String> query, String fragment){
         this.__scheme = scheme;
         this.authority = authority;
-        this.query = new HashMap<>(query);
-        this.path = new LinkedList<>(path);
+        this.query = (query != null ? new HashMap<>(query) : new HashMap<>());
+        this.path = (path != null ? new LinkedList<>(path) : new LinkedList<>());
         this.__fragment = fragment;
     }
 }
