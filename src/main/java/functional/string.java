@@ -57,7 +57,7 @@ public class string {
         for(CharSequence cs : elements){
             if(cs!=null && cs.length()!=0){
                 builder.append(cs);
-                builder.append(".");
+                builder.append(delimiter);
             }
         }
         if(builder.length() > 0){
@@ -74,7 +74,7 @@ public class string {
         for(CharSequence cs : elements){
             if(cs!=null && cs.length()!=0){
                 builder.append(cs);
-                builder.append(".");
+                builder.append(delimiter);
             }
         }
         if(builder.length() > 0){
@@ -92,7 +92,7 @@ public class string {
                 CharSequence cs = elements.get(i);
                 if(cs!=null && cs.length()!=0){
                     builder.append(cs);
-                    builder.append(".");
+                    builder.append(delimiter);
                 }
             }
             if(builder.length() > 0){
