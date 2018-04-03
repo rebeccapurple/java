@@ -17,6 +17,7 @@ public class path {
             public static String string(List<String> path){
                 return path != null && path.size()>0 ? functional.string.join("/", path, 0, path.size() - 1) : null;
             }
+            public static String string(String path){ return string(functional.collection.to.list(functional.string.split(path, "/"))); }
         }
     }
 
