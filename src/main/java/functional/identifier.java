@@ -27,28 +27,34 @@ public class identifier {
         if(strings.length == 2){
             path = functional.collection.to.list(functional.string.split(strings[0], "/"));
             strings = functional.string.split(strings[1], "#", 2);
-        } else {
-            strings = functional.string.split(strings[0], "#", 2);
-        }
-        String fragment = null;
-        if(strings.length == 2) {
-            fragment = strings[1];
-        }
-        Map<String, String> query = null;
-        if(!functional.string.check.empty(strings[0])) {
-            strings = functional.string.split(strings[0], "&");
-            query = new HashMap<>();
-            for(String item : strings) {
-                String[] pair = functional.string.split(item, "=", 2);
-                if(functional.string.check.empty(pair[0])) {
-                    functional.log.e("functional.string.check.empty(pair[0])");
-                    continue;
-                }
-                if(pair.length == 2){
-                    query.put(pair[0], pair[1]);
+            String fragment = null;
+            if(strings.length == 2) {
+                fragment = strings[1];
+            }
+            Map<String, String> query = null;
+            if(!functional.string.check.empty(strings[0])) {
+                strings = functional.string.split(strings[0], "&");
+                query = new HashMap<>();
+                for(String item : strings) {
+                    String[] pair = functional.string.split(item, "=", 2);
+                    if(functional.string.check.empty(pair[0])) {
+                        functional.log.e("functional.string.check.empty(pair[0])");
+                        continue;
+                    }
+                    if(pair.length == 2){
+                        query.put(pair[0], pair[1]);
+                    }
                 }
             }
+            return new Identifier(scheme, authority, path, query, fragment);
+        } else {
+            strings = functional.string.split(strings[0], "#", 2);
+            path = functional.collection.to.list(functional.string.split(strings[0], "/"));
+            if(strings.length == 2) {
+                return new Identifier(scheme, authority, path, strings[1]);
+            } else {
+                return new Identifier(scheme, authority, path);
+            }
         }
-        return new Identifier(scheme, authority, path, query, fragment);
     }
 }
