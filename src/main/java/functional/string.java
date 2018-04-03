@@ -1,5 +1,6 @@
 package functional;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Collection;
 import java.util.regex.Pattern;
@@ -80,6 +81,26 @@ public class string {
             builder.deleteCharAt(builder.length() - 1);
         }
         return builder.toString();
+    }
+
+    @SuppressWarnings("Duplicates")
+    public static String join(CharSequence delimiter, List<? extends CharSequence> elements, int start, int end) {
+        if(delimiter == null || elements == null){ throw new NullPointerException(); }
+        if(start >= 0){
+            StringBuilder builder = new StringBuilder();
+            for(int i = start; i < end; i++) {
+                CharSequence cs = elements.get(i);
+                if(cs!=null && cs.length()!=0){
+                    builder.append(cs);
+                    builder.append(".");
+                }
+            }
+            if(builder.length() > 0){
+                builder.deleteCharAt(builder.length() - 1);
+            }
+            return builder.toString();
+        }
+        return null;
     }
 
     public static String[] split(String original, String delimiter){ return original != null ? original.split(delimiter) : null; }
