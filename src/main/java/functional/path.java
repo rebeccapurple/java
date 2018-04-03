@@ -12,6 +12,11 @@ public class path {
             }
             return null;
         }
+        public static class file {
+            public static String string(List<String> path){
+                return path != null && path.size()>0 ? functional.string.join("/", path) : null;
+            }
+        }
         public static class directory {
             public static String string(Identifier identifier){ return string(identifier.path); }
             public static String string(List<String> path){
