@@ -1,4 +1,5 @@
 package rebeccapurple;
 
-public class Resource {
+public interface Resource {
+    Identifier local();
 }
