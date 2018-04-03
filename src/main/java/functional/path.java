@@ -26,5 +26,4 @@ public class path {
             public static String string(String path){ return string(functional.collection.to.list(functional.string.split(path, "/"))); }
         }
     }
-
 }

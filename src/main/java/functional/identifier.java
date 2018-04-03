@@ -17,7 +17,7 @@ public class identifier {
         String scheme = strings[0];
         strings = functional.string.split(strings[1], "/", 2);
         Authority authority;
-        if(strings.length == 1 || functional.string.check.empty(strings[1])){
+        if(strings.length == 1){
             return new rebeccapurple.Identifier(scheme, functional.authority.from(strings[0]));
         } else {
             authority = functional.authority.from(strings[0]);
