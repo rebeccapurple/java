@@ -1,5 +1,14 @@
 package rebeccapurple;
 
+/**
+ *
+ * @author      sean <hyunsik-park@textory.com>
+ * @since       0.0.1
+ * @date        2018. 4. 4.
+ * @visibility  public
+ * @param       <IN> input object type
+ * @stereotype  interface
+ */
 public interface Task<IN> {
     class STATE {
         public static final int UNKNOWN    = 0x00000000;
