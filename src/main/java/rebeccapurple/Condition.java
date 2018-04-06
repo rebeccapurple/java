@@ -1,3 +1,3 @@
 package rebeccapurple;
 
-public interface Condition<IN> extends Function<IN, Boolean> { Boolean call(IN in); }
+public interface Condition<IN> { Boolean check(IN in); }
