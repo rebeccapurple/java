@@ -44,6 +44,18 @@ public class collection {
         return null;
     }
 
+    public static <T> Collection<T> set(Collection<T> destination, Collection<? extends T> source){
+        if(destination != null){
+            destination.clear();
+            if(source != null){
+                destination.addAll(source);
+            }
+        } else {
+            functional.log.e("destination == null");
+        }
+        return destination;
+    }
+
     public static <K, V, MAP extends Map<K, V>> void put(MAP destination, Map<K, V> source){ destination.putAll(source); }
 
     public static <K, V, MAP extends Map<K, V>> MAP create(MAP map, Map<K, V> source){
