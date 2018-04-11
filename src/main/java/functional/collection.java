@@ -80,4 +80,15 @@ public class collection {
             return collection;
         }
     }
+
+    public static <T> Collection<T> add(Collection<T> collection, T o, boolean nullable){
+        if(collection != null) {
+            if(nullable){
+                collection.add(o);
+            } else if(o != null){
+                collection.add(o);
+            }
+        }
+        return collection;
+    }
 }
