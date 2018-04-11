@@ -15,6 +15,7 @@ public class string {
     }
 
     public static boolean equal(String x, String y){ return x==null ? y==null : x.equals(y); }
+    public static boolean equal(String x, String y, boolean casing){ return x==null ? y==null : (casing ? x.equals(y) : x.equalsIgnoreCase(y)); }
 
     public static String replace(String original, String target, String replacement){ return original != null ? original.replace(target, replacement) : ""; }
 
