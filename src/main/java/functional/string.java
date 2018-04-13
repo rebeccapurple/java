@@ -15,6 +15,17 @@ public class string {
         return v!=null && expression!=null && v.matches(expression.pattern());
     }
 
+    public static boolean contain(String x, String... strings){
+        if(strings != null){
+            for(String y : strings){
+                if(functional.string.equal(x, y)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean equal(String x, String y){ return x==null ? y==null : x.equals(y); }
     public static boolean equal(String x, String y, boolean casing){ return x==null ? y==null : (casing ? x.equals(y) : x.equalsIgnoreCase(y)); }
 

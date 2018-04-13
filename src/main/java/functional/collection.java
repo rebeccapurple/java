@@ -2,6 +2,7 @@ package functional;
 
 import java.util.*;
 
+import rebeccapurple.Condition;
 import rebeccapurple.Function;
 import rebeccapurple.Listener;
 
@@ -27,6 +28,19 @@ public class collection {
     }
 
     public static <K, V> V get(Map<K, V> map, K k, Function<K, V> function){ return map.computeIfAbsent(k, key -> functional.exception.safe(key, function)); }
+
+    public static <K, V> V get(Map<K, V> map, K k){ return map != null ? map.get(k) : null; }
+
+    public static <K, V> V get(List<V> list, K k, rebeccapurple.condition.Pair<V, K> condition){
+        if(list != null && condition != null){
+            for(V v : list){
+                if(condition.check(v, k)){
+                    return v;
+                }
+            }
+        }
+        return null;
+    }
 
     public static <T> void each(Collection<T> collection, Listener<T> function){
         for(T o : collection){
@@ -57,6 +71,19 @@ public class collection {
     }
 
     public static <K, V, MAP extends Map<K, V>> void put(MAP destination, Map<K, V> source){ destination.putAll(source); }
+    public static <K, V, MAP extends Map<K, V>> void put(MAP destination, K k, V v){ destination.put(k, v); }
+
+    public static <V, LIST extends List<V>> V put(LIST list, V v, Condition<V> condition){
+        for(V value : list) {
+            if(condition.check(value)){
+                list.remove(value);
+                list.add(v);
+                return value;
+            }
+        }
+        list.add(v);
+        return null;
+    }
 
     public static <K, V, MAP extends Map<K, V>> MAP create(MAP map, Map<K, V> source){
         map.putAll(source);
@@ -80,7 +107,7 @@ public class collection {
             return collection;
         }
     }
-
+    public static <T, COLLECTION extends Collection<? super T>> COLLECTION add(COLLECTION collection, T o){ return add(collection, o, true); }
     public static <T, COLLECTION extends Collection<? super T>> COLLECTION add(COLLECTION collection, T o, boolean nullable){
         if(collection != null) {
             if(nullable){
@@ -90,5 +117,18 @@ public class collection {
             }
         }
         return collection;
+    }
+
+    public static <K, V, MAP extends Map<K, V>> V del(MAP map, K k){ return map != null ? map.remove(k) : null; }
+    public static <K, V, LIST extends List<V>> V del(LIST list, K k, rebeccapurple.condition.Pair<V, K> condition){
+        if(list != null){
+            for(V v : list) {
+                if(condition.check(v, k)) {
+                    list.remove(v);
+                    return v;
+                }
+            }
+        }
+        return null;
     }
 }
