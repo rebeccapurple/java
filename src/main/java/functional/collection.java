@@ -81,7 +81,7 @@ public class collection {
         }
     }
 
-    public static <T> Collection<T> add(Collection<T> collection, T o, boolean nullable){
+    public static <T, COLLECTION extends Collection<? super T>> COLLECTION add(COLLECTION collection, T o, boolean nullable){
         if(collection != null) {
             if(nullable){
                 collection.add(o);
