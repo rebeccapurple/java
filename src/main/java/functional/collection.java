@@ -73,9 +73,9 @@ public class collection {
     public static <K, V, MAP extends Map<K, V>> void put(MAP destination, Map<K, V> source){ destination.putAll(source); }
     public static <K, V, MAP extends Map<K, V>> void put(MAP destination, K k, V v){ destination.put(k, v); }
 
-    public static <V, LIST extends List<V>> V put(LIST list, V v, Condition<V> condition){
+    public static <V, LIST extends List<V>> V put(LIST list, V v, rebeccapurple.condition.Pair<V, V> condition){
         for(V value : list) {
-            if(condition.check(value)){
+            if(condition.check(value, v)){
                 list.remove(value);
                 list.add(v);
                 return value;
