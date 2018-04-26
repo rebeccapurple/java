@@ -45,6 +45,8 @@ public class string {
         return "";
     }
 
+    public static String from(Long v){ return v != null ? v.toString() : null; }
+
     public static String get(String v){ return v!=null ? v : ""; }
 
     /**
