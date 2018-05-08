@@ -30,6 +30,12 @@ public class string {
     public static boolean equal(String x, String y, boolean casing){ return x==null ? y==null : (casing ? x.equals(y) : x.equalsIgnoreCase(y)); }
 
     public static String replace(String original, String target, String replacement){ return original != null ? original.replace(target, replacement) : ""; }
+    public static String replace(String original, String target, String replacement, boolean all){
+        if(original != null){
+            return all ? original.replace(target, replacement) : original.replaceAll(target, replacement);
+        }
+        return null;
+    }
 
     public static String from(Class<?> c, boolean simple){ return c!=null ? (simple ? c.getSimpleName() : c.getCanonicalName()) : ""; }
 
