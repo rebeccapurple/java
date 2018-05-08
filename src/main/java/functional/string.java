@@ -11,6 +11,9 @@ public class string {
         public static boolean empty(String v, boolean trim){ return trim ? (v == null || empty(v.trim())) : empty(v); }
     }
 
+    public static boolean empty(String v){ return v == null || v.length() == 0; }
+    public static boolean empty(String v, boolean trim){ return trim ? (v == null || empty(v.trim())) : empty(v); }
+
     public static boolean validate(Pattern expression, String v){
         return v!=null && expression!=null && v.matches(expression.pattern());
     }
