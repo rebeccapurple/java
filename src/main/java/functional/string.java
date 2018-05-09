@@ -32,6 +32,10 @@ public class string {
         return false;
     }
 
+    public static class to {
+        public static String upper(String v){ return v != null ? v.toUpperCase() : null; }
+    }
+
     public static boolean equal(String x, String y){ return x==null ? y==null : x.equals(y); }
     public static boolean equal(String x, String y, boolean casing){ return x==null ? y==null : (casing ? x.equals(y) : x.equalsIgnoreCase(y)); }
 
